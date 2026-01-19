@@ -1,0 +1,1368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Table 1</title>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+
+<body style="margin:0; overflow:auto;">
+
+<section class="vi-table-embed brand-vegasinsider footer-center align-center" style="width:100%;max-width:100%;margin:0;
+         font:14px/1.35 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+         color:#181a1f;background:#ffffff;border:1px solid #DCEFE6;border-radius:12px;
+         box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.09);">
+
+  <style>
+    .vi-table-embed, .vi-table-embed * { box-sizing:border-box; font-family:inherit; }
+
+    .vi-table-embed{
+      --brand-50:#F6FFF9;
+      --brand-100:#DCF2EB;
+      --brand-300:#BCE5D6;
+      --brand-500:#56C257;
+      --brand-600:#3FA94B;
+      --brand-700:#2E8538;
+      --brand-900:#1F5D28;
+      --brand-500-rgb: 86, 194, 87;
+
+      --header-bg:var(--brand-500);
+      --stripe:var(--brand-100);
+      --hover:var(--brand-300);
+      --scroll-thumb:var(--brand-500);
+      --footer-border: rgba(var(--brand-500-rgb), 0.35);
+
+      --cell-align:center;
+
+      /* ✅ Controls sizing */
+      --ctrl-font: 13px;
+      --ctrl-pad-y: 7px;
+      --ctrl-pad-x: 10px;
+      --ctrl-radius: 10px;
+      --ctrl-gap: 8px;
+
+      /* ✅ Table scroll height */
+      --table-max-h: 680px;
+
+      /* ✅ FIXED bar track width (same across ALL bar columns) */
+      --bar-fixed-w: 200px;
+
+      /* ✅ Footer logo height */
+      --footer-logo-h: 36px;
+    }
+
+    .vi-table-embed.align-left { --cell-align:left; }
+    .vi-table-embed.align-center { --cell-align:center; }
+    .vi-table-embed.align-right { --cell-align:right; }
+
+    .vi-table-embed.brand-vegasinsider{
+      --brand-50:#FFF7DC;
+      --brand-100:#FFE8AA;
+      --brand-300:#FFE08A;
+      --brand-500:#F2C23A;
+      --brand-600:#D9A72A;
+      --brand-700:#B9851A;
+      --brand-900:#111111;
+      --brand-500-rgb: 242, 194, 58;
+
+      --header-bg:var(--brand-500);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-500);
+      --footer-border: rgba(var(--brand-500-rgb), 0.40);
+    }
+
+    .vi-table-embed.brand-bolavip{
+      --brand-50:#FFF1F2;
+      --brand-100:#FFE1E4;
+      --brand-300:#FDA4AF;
+      --brand-500:#D81F30;
+      --brand-600:#BE1B2A;
+      --brand-700:#9F1622;
+      --brand-900:#5F0C12;
+      --brand-500-rgb: 216, 31, 48;
+
+      --header-bg:var(--brand-600);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-600);
+      --footer-border: rgba(var(--brand-500-rgb), 0.40);
+    }
+
+    .vi-table-embed.brand-canadasb{
+      --brand-50:#FEF2F2;
+      --brand-100:#FEE2E2;
+      --brand-300:#FECACA;
+      --brand-500:#EF4444;
+      --brand-600:#DC2626;
+      --brand-700:#B91C1C;
+      --brand-900:#7F1D1D;
+      --brand-500-rgb: 239, 68, 68;
+
+      --header-bg:var(--brand-600);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-600);
+      --footer-border: rgba(220, 38, 38, 0.40);
+    }
+
+    .vi-table-embed.brand-rotogrinders{
+      --brand-50:#E8F1FF;
+      --brand-100:#D3E3FF;
+      --brand-300:#9ABCF9;
+      --brand-500:#2F7DF3;
+      --brand-600:#0159D1;
+      --brand-700:#0141A1;
+      --brand-900:#011F54;
+      --brand-500-rgb: 47, 125, 243;
+
+      --header-bg:var(--brand-700);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-600);
+      --footer-border: rgba(1, 89, 209, 0.40);
+    }
+
+    .vi-table-embed.brand-aceodds{
+      --brand-50:#F1F3F7;
+      --brand-100:#D9DEE8;
+      --brand-300:#AEB8CB;
+      --brand-500:#364464;
+      --brand-600:#2E3A56;
+      --brand-700:#242E45;
+      --brand-900:#131A2B;
+      --brand-500-rgb: 54, 68, 100;
+
+      --header-bg:var(--brand-600);
+      --stripe:var(--brand-50);
+      --hover:var(--brand-100);
+      --scroll-thumb:var(--brand-600);
+      --footer-border: rgba(var(--brand-500-rgb), 0.40);
+    }
+
+    /* Header block */
+    .vi-table-embed .vi-table-header{
+      padding:10px 16px 8px;
+      border-bottom:1px solid var(--brand-100);
+      background:linear-gradient(90deg,var(--brand-50),#ffffff);
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+    }
+    .vi-table-embed .vi-table-header.centered{ align-items:center; text-align:center; }
+    .vi-table-embed .vi-table-header .title{
+      margin:0; font-size:clamp(18px,2.3vw,22px); font-weight:750; color:#111827; display:block;
+    }
+    .vi-table-embed .vi-table-header .title.branded{ color:var(--brand-600); }
+    .vi-table-embed .vi-table-header .subtitle{ margin:0; font-size:13px; color:#6b7280; display:block; }
+
+    /* Table block */
+    #bt-block, #bt-block * { box-sizing:border-box; }
+    #bt-block{
+      --bg:#ffffff; --text:#1f2937;
+      --gutter: 12px;
+      padding: 10px var(--gutter);
+      padding-top: 10px;
+    }
+
+    /* ✅ Controls row */
+    #bt-block .dw-controls{
+      display:grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items:center;
+      gap: var(--ctrl-gap);
+      margin: 4px 0 10px 0;
+      width:100%;
+      min-width:0;
+    }
+
+    #bt-block .left,
+    #bt-block .right{
+      min-width:0;
+      display:flex;
+      align-items:center;
+    }
+
+    #bt-block .left{ justify-content:flex-start; }
+    #bt-block .right{
+      justify-content:flex-end;
+      gap: var(--ctrl-gap);
+      flex-wrap:nowrap;
+      white-space:nowrap;
+      position:relative;
+    }
+
+    #bt-block .dw-pager,
+    #bt-block .dw-embed{
+      display:flex;
+      align-items:center;
+      gap: var(--ctrl-gap);
+      flex-wrap:nowrap;
+      white-space:nowrap;
+      position:relative;
+    }
+
+    #bt-block .dw-field{ position:relative; min-width:0; width:100%; }
+
+    #bt-block .dw-input,
+    #bt-block .dw-select,
+    #bt-block .dw-btn{
+      font: var(--ctrl-font)/1.1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      border-radius: var(--ctrl-radius);
+      padding: var(--ctrl-pad-y) var(--ctrl-pad-x);
+      transition:.15s ease;
+    }
+
+    /* Search */
+    #bt-block .dw-input{
+      width: 100%;
+      max-width: 260px;
+      min-width: 120px;
+      padding-right: 34px;
+      background:#fff;
+      border:1px solid var(--brand-700);
+      color:var(--text);
+      box-shadow:inset 0 1px 2px rgba(16,24,40,.04);
+    }
+
+    /* ✅ Mobile squeeze */
+    @media (max-width: 520px){
+      #bt-block{
+        --ctrl-gap: 6px;
+        --ctrl-font: 12px;
+        --ctrl-pad-y: 6px;
+        --ctrl-pad-x: 8px;
+      }
+      #bt-block .dw-input{
+        max-width: 140px;
+        min-width: 85px;
+      }
+      #bt-block .dw-pager .dw-status{ display:none; }
+      #bt-block .dw-btn.dw-download{
+        font-size: 0;
+        padding-inline: 10px;
+      }
+      #bt-block .dw-btn.dw-download::after{
+        content:"Embed";
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+
+    @media (max-width: 330px){
+      #bt-block .dw-controls{
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
+      #bt-block .right{
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        white-space:normal;
+      }
+    }
+
+    #bt-block .dw-input::placeholder{color:#9AA4B2}
+    #bt-block .dw-input:focus,
+    #bt-block .dw-select:focus{
+      outline:none;
+      border-color:var(--brand-500);
+      box-shadow:0 0 0 3px rgba(var(--brand-500-rgb), .22);
+      background:#fff;
+    }
+
+    /* Rows/Page dropdown */
+    #bt-block .dw-select{
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      padding-right: 18px;
+      width: 62px;
+      text-align:center;
+      background:#fff;
+      border:1px solid var(--brand-700);
+      color:var(--text);
+      box-shadow:inset 0 1px 2px rgba(16,24,40,.04);
+    }
+
+    /* Buttons */
+    #bt-block .dw-btn{
+      background:var(--brand-500);
+      color:#fff;
+      border:1px solid var(--brand-500);
+      padding-inline: 10px;
+      cursor:pointer;
+      white-space:nowrap;
+      height: 34px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    #bt-block .dw-btn:hover{background:var(--brand-600); border-color:var(--brand-600)}
+    #bt-block .dw-btn:active{transform:translateY(1px)}
+    #bt-block .dw-btn[disabled]{background:#fafafa; border-color:#d1d5db; color:#6b7280; opacity:1; cursor:not-allowed; transform:none}
+    #bt-block .dw-btn[data-page]{ width: 34px; padding: 0; }
+
+    /* Embed/Download button */
+    #bt-block .dw-btn.dw-download{
+      background:#ffffff;
+      color:var(--brand-700);
+      border:1px solid var(--brand-700);
+      height: 34px;
+      padding-inline: 10px;
+      font-weight:600;
+    }
+    #bt-block .dw-btn.dw-download:hover{
+      background:var(--brand-50);
+      border-color:var(--brand-600);
+      color:var(--brand-600);
+    }
+
+    /* Download menu */
+    #bt-block .dw-download-menu{
+      position:absolute;
+      right:0;
+      top:40px;
+      min-width: 220px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+      padding:10px;
+      z-index: 50;
+
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      gap:6px;
+    }
+
+    #bt-block .dw-download-menu .dw-menu-title{
+      font: 12px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:#6b7280;
+      margin:0 0 8px 2px;
+    }
+
+    #bt-block .dw-download-menu .dw-menu-btn{
+      width:100%;
+      display:block;
+      text-align:left;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      color:#111827;
+      padding:10px 10px;
+      cursor:pointer;
+      margin:0;
+      font: 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    }
+    #bt-block .dw-download-menu .dw-menu-btn:hover{
+      background:var(--brand-50);
+      border-color: rgba(var(--brand-500-rgb), .35);
+    }
+
+    /* Clear button */
+    #bt-block .dw-clear{
+      position:absolute; right:9px; top:50%; translate:0 -50%;
+      width:20px; height:20px; border-radius:9999px; border:0;
+      background:transparent; color:var(--brand-700);
+      cursor:pointer; display:none; align-items:center; justify-content:center;
+    }
+    #bt-block .dw-field.has-value .dw-clear{display:flex}
+    #bt-block .dw-clear:hover{background:var(--brand-100)}
+
+    /* Card wrapper */
+    #bt-block .dw-card{
+      background: var(--bg);
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+      width: 100%;
+      overflow: visible;
+    }
+
+    /* scroll */
+    #bt-block .dw-scroll{
+      max-height: min(var(--table-max-h, 680px), calc(100vh - 240px));
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x pan-y;
+      overscroll-behavior: auto;
+      scrollbar-gutter: stable both-edges;
+
+      scrollbar-width: thin;
+      scrollbar-color: var(--scroll-thumb) transparent;
+    }
+
+    #bt-block .dw-scroll::-webkit-scrollbar{ width: 8px; height: 8px; }
+    #bt-block .dw-scroll::-webkit-scrollbar-track{ background: transparent; }
+    #bt-block .dw-scroll::-webkit-scrollbar-thumb{
+      background: var(--scroll-thumb);
+      border-radius: 9999px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+    #bt-block .dw-scroll::-webkit-scrollbar-thumb:hover{ background: var(--brand-600); }
+
+    #bt-block table.dw-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      background: transparent;
+      min-width: 600px;
+      table-layout: auto;
+    }
+
+    /* Header row */
+    #bt-block thead th{
+      background:var(--header-bg);
+      color:#ffffff;
+      font-weight:700;
+      vertical-align:middle;
+      border:0;
+      padding:14px 14px;
+      white-space:nowrap;
+      transition:background-color .15s, color .15s, box-shadow .15s, transform .05s;
+      text-align: var(--cell-align, center);  /* ✅ ADD THIS */
+    }
+    #bt-block thead th.sortable{cursor:pointer; user-select:none}
+    #bt-block thead th.sortable::after{content:"↕"; font-size:12px; opacity:.75; margin-left:8px; color:#ffffff}
+    #bt-block thead th.sortable[data-sort="asc"]::after{content:"▲"}
+    #bt-block thead th.sortable[data-sort="desc"]::after{content:"▼"}
+    #bt-block thead th.sortable:hover,#bt-block thead th.sortable:focus-visible{background:var(--brand-600); color:#fff; box-shadow:inset 0 -3px 0 var(--brand-100)}
+    #bt-block .dw-scroll.scrolled thead th{box-shadow:0 6px 10px -6px rgba(0,0,0,.25)}
+    #bt-block thead th.is-sorted{background:var(--brand-700); color:#fff; box-shadow:inset 0 -3px 0 var(--brand-100)}
+
+    #bt-block thead th,
+    #bt-block tbody td {
+      padding: 16px 14px;
+      overflow: hidden;
+      text-align: var(--cell-align, center);
+      vertical-align: middle;
+    }
+
+    #bt-block .dw-cell{
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+      line-height: 1.35;
+
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* ======================================================
+       ✅ FIXED BAR TRACK WIDTH + AUTO COLUMN EXPAND
+       ====================================================== */
+
+    /* ✅ Ensure bar columns expand to fit the fixed bar width */
+    #bt-block th.dw-bar-col,
+    #bt-block td.dw-bar-td{
+      min-width: calc(var(--bar-fixed-w) + 70px);
+    }
+
+    /* ✅ Fixed bar track size (identical for all columns) */
+    #bt-block .dw-bar-wrap{
+      width: min(var(--bar-fixed-w), 100%);
+      margin: 0 auto;
+      display:block;
+    }
+
+    #bt-block .dw-bar-track{
+      position: relative;
+      width: 100%;
+      height: 18px;
+      background: rgba(0,0,0,.07);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    #bt-block .dw-bar-fill{
+      position:absolute;
+      top:0; left:0; bottom:0;
+      width:0%;
+      background: var(--brand-600);
+      border-radius: 999px;
+      transition: width .2s ease;
+    }
+
+    /* ✅ text layer stays readable no matter fill width */
+    #bt-block .dw-bar-text{
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      padding-right: 6px;
+    }
+
+    #bt-block .dw-bar-pill{
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.55);
+      color: #ffffff;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    /* zebra */
+    
+    #bt-block tbody tr:not(.dw-empty):nth-child(odd) td{background:var(--stripe);}
+    #bt-block tbody tr:not(.dw-empty):nth-child(even) td{background:#ffffff;}
+
+
+    #bt-block tbody tr:hover td{ background:var(--hover) !important; }
+    #bt-block tbody tr:hover{
+      box-shadow:inset 3px 0 0 var(--brand-500);
+      transform:translateY(-1px);
+      transition:background-color .12s ease, box-shadow .12s ease, transform .08s ease;
+    }
+
+    #bt-block thead th{position:sticky; top:0; z-index:5}
+
+    #bt-block tr.dw-empty td{
+      text-align:center; color:#6b7280; font-style:italic; padding:18px 14px;
+      background:linear-gradient(0deg,#fff,var(--brand-50)) !important;
+    }
+
+    /* Footer */
+    .vi-table-embed .vi-footer {
+      display:flex;
+      align-items:center;
+      padding:0 14px;            /* fixed-height footer; no vertical padding */
+      height:64px;               /* ✅ fixed footer height */
+      border-top:1px solid var(--footer-border);
+      background:linear-gradient(90deg,var(--brand-50),#ffffff);
+      position: sticky;
+      bottom: 0;
+      z-index: 20;
+      overflow:hidden;           /* keep footer height fixed even if logo is large */
+    }
+    .vi-table-embed .footer-inner{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:12px;
+      height:100%;
+      width:100%;
+    }
+    .vi-table-embed.footer-center .footer-inner{ justify-content:center; }
+    .vi-table-embed.footer-left .footer-inner{ justify-content:flex-start; }
+
+    /* Footer notes layout */
+    .vi-table-embed .footer-inner{
+      justify-content:space-between;
+    }
+    
+    /* ✅ Wrapper gives us “card” spacing + keeps layout stable */
+    .vi-table-embed .footer-notes-wrap{
+      flex: 1 1 0;
+      min-width: 0;
+      display:flex;
+      align-items:center;
+      padding-right: 10px;
+    }
+    
+    /* ✅ Auto-expand notes to all available width */
+    .vi-table-embed .footer-notes{
+      flex: 1 1 0;
+      width: 100%;
+      max-width: none;   /* ✅ THIS is the key change */
+    
+      padding: 10px 12px;
+      border-radius: 12px;
+    
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+    
+      border-left: 6px solid var(--brand-500);
+    
+      font: 12.5px/1.25 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+      color:#374151;
+    
+      max-height: 46px;
+      overflow:auto;
+    }
+        
+    /* Optional typographic polish */
+    .vi-table-embed .footer-notes strong{ color:#111827; font-weight:750; }
+    .vi-table-embed .footer-notes em{ color:#374151; }
+    
+    /* nicer scrollbar */
+    .vi-table-embed .footer-notes::-webkit-scrollbar{ width: 6px; height: 6px; }
+    .vi-table-embed .footer-notes::-webkit-scrollbar-thumb{
+      background: rgba(var(--brand-500-rgb), .45);
+      border-radius: 9999px;
+    }
+    
+    .vi-table-embed .footer-logo{
+      flex: 0 0 auto;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    /* When logo is LEFT, swap order so notes go to the right */
+    .vi-table-embed.footer-left .footer-inner{ flex-direction: row-reverse; }
+    .vi-table-embed.footer-left .footer-logo{ justify-content:flex-start; }
+
+    /* When centered requested but notes are enabled, we treat it like RIGHT (handled in Python) */
+    .vi-table-embed .vi-footer img{height: var(--footer-logo-h); width:auto; display:inline-block; max-height:100%; width:auto; display:inline-block; }
+
+    .vi-table-embed.brand-actionnetwork .vi-footer img{
+      filter: brightness(0) saturate(100%) invert(62%) sepia(23%) saturate(1250%) hue-rotate(78deg) brightness(96%) contrast(92%); width: auto;
+      display: inline-block;
+    }
+    .vi-table-embed.brand-vegasinsider .vi-footer img{ filter: none !important; }
+    .vi-table-embed.brand-canadasb .vi-footer img{
+      filter: brightness(0) saturate(100%) invert(32%) sepia(85%) saturate(2386%) hue-rotate(347deg) brightness(96%) contrast(104%); }
+    .vi-table-embed.brand-rotogrinders .vi-footer img{
+      filter: brightness(0) saturate(100%) invert(23%) sepia(95%) saturate(1704%) hue-rotate(203deg) brightness(93%) contrast(96%); }
+    .vi-table-embed.brand-bolavip .vi-footer img{ filter: none !important; width: auto; display: inline-block; }
+    .vi-table-embed.brand-aceodds .vi-footer img{ filter: none !important; width: auto; display: inline-block; }
+
+    .vi-hide{ display:none !important; }
+
+    /* EXPORT MODE */
+    .vi-table-embed.export-mode .vi-table-header{ display:none !important; }
+    .vi-table-embed.export-mode #bt-block .dw-controls,
+    .vi-table-embed.export-mode #bt-block .dw-page-status{ display:none !important; }
+    .vi-table-embed.export-mode #bt-block .dw-scroll{ max-height:none !important; height:auto !important; overflow:visible !important; }
+    .vi-table-embed.export-mode #bt-block thead th{ position:static !important; }
+    .vi-table-embed.export-mode #bt-block tbody tr:hover,
+    .vi-table-embed.export-mode #bt-block tbody tr:hover td{ transform:none !important; box-shadow:none !important; }
+    .vi-table-embed.export-mode #bt-block table.dw-table{
+      table-layout:auto !important;
+      width:max-content !important;
+      min-width:100% !important;
+    }
+    .vi-table-embed.export-mode #bt-block .dw-scroll.no-scroll{
+      overflow-x: visible !important;
+      overflow-y: visible !important;
+    }
+  </style>
+
+  <!-- Header -->
+  <div class="vi-table-header  ">
+    <span class="title branded">Table 1</span>
+    <span class="subtitle">Subheading</span>
+  </div>
+
+  <!-- Table block -->
+  <div id="bt-block" data-dw="table">
+    <div class="dw-controls ">
+      <div class="left">
+        <div class="dw-field ">
+          <input type="search" class="dw-input" placeholder="Search Table…" aria-label="Search Table">
+          <button type="button" class="dw-clear" aria-label="Clear Search">×</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <!-- Pager -->
+        <div class="dw-pager ">
+          <label class="dw-status" for="bt-size" style="margin-right:2px;">Rows/Page</label>
+          <select id="bt-size" class="dw-select">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="0">All</option>
+          </select>
+
+          <button class="dw-btn" data-page="prev" aria-label="Previous Page">‹</button>
+          <button class="dw-btn" data-page="next" aria-label="Next Page">›</button>
+        </div>
+
+        <!-- Embed/Download -->
+        <div class="dw-embed ">
+          <button class="dw-btn dw-download" id="dw-download-png" type="button">Embed / Download</button>
+
+          <div id="dw-download-menu" class="dw-download-menu vi-hide" aria-label="Download Menu">
+            <div class="dw-menu-title" id="dw-menu-title">Choose action</div>
+            <button type="button" class="dw-menu-btn" id="dw-dl-top10">Download Top 10</button>
+            <button type="button" class="dw-menu-btn" id="dw-dl-bottom10">Download Bottom 10</button>
+            <button type="button" class="dw-menu-btn" id="dw-dl-csv">Download CSV</button>
+            <button type="button" class="dw-menu-btn" id="dw-embed-script">Copy HTML</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dw-card">
+      <div class="dw-scroll">
+        <table class="dw-table">
+          <thead>
+            <tr>
+              <th scope="col" data-type="num" class="">Rank</th>
+              <th scope="col" data-type="text" class="">State</th>
+              <th scope="col" data-type="num" class="">unemployment rate</th>
+              <th scope="col" data-type="num" class="">pcpi</th>
+              <th scope="col" data-type="num" class="">pcepc</th>
+              <th scope="col" data-type="num" class="">cost_burden</th>
+              <th scope="col" data-type="num" class="">weekly Working Hours</th>
+              <th scope="col" data-type="num" class="">Good_or_Better_Health</th>
+              <th scope="col" data-type="num" class="">Physically_Active</th>
+              <th scope="col" data-type="num" class="">AdultsWithAnxietyOrDepresion</th>
+              <th scope="col" data-type="num" class="">PoorHealth_pct</th>
+              <th scope="col" data-type="num" class="">LowActivity_pct</th>
+              <th scope="col" data-type="num" class="">BurnoutScore</th>
+              <th scope="col" data-type="num" class="">Implied_Probability_%</th>
+              <th scope="col" data-type="num" class="">American (Moneyline)</th>
+            </tr>
+          </thead>
+          <tbody>
+                        <tr><td><div class="dw-cell" title="1">1</div></td><td><div class="dw-cell" title="Louisiana">Louisiana</div></td><td><div class="dw-cell" title="4.4%">4.4%</div></td><td><div class="dw-cell" title="61332">61332</div></td><td><div class="dw-cell" title="50454">50454</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="36.5">36.5</div></td><td><div class="dw-cell" title="76.7%">76.7%</div></td><td><div class="dw-cell" title="69.9%">69.9%</div></td><td><div class="dw-cell" title="39.2%">39.2%</div></td><td><div class="dw-cell" title="23.3">23.3</div></td><td><div class="dw-cell" title="30.1">30.1</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="6.51%">6.51%</div></td><td><div class="dw-cell" title="1436">1436</div></td></tr>
+            <tr><td><div class="dw-cell" title="2">2</div></td><td><div class="dw-cell" title="West Virginia">West Virginia</div></td><td><div class="dw-cell" title="4.1%">4.1%</div></td><td><div class="dw-cell" title="55138">55138</div></td><td><div class="dw-cell" title="50286">50286</div></td><td><div class="dw-cell" title="0.91">0.91</div></td><td><div class="dw-cell" title="35.1">35.1</div></td><td><div class="dw-cell" title="73.5%">73.5%</div></td><td><div class="dw-cell" title="68%">68%</div></td><td><div class="dw-cell" title="37.9%">37.9%</div></td><td><div class="dw-cell" title="26.5">26.5</div></td><td><div class="dw-cell" title="32">32</div></td><td><div class="dw-cell" title="0.81">0.81</div></td><td><div class="dw-cell" title="6.31%">6.31%</div></td><td><div class="dw-cell" title="1485">1485</div></td></tr>
+            <tr><td><div class="dw-cell" title="3">3</div></td><td><div class="dw-cell" title="Kentucky">Kentucky</div></td><td><div class="dw-cell" title="5.1%">5.1%</div></td><td><div class="dw-cell" title="57526">57526</div></td><td><div class="dw-cell" title="48901">48901</div></td><td><div class="dw-cell" title="0.85">0.85</div></td><td><div class="dw-cell" title="35">35</div></td><td><div class="dw-cell" title="78.2%">78.2%</div></td><td><div class="dw-cell" title="73.6%">73.6%</div></td><td><div class="dw-cell" title="35.9%">35.9%</div></td><td><div class="dw-cell" title="21.8">21.8</div></td><td><div class="dw-cell" title="26.4">26.4</div></td><td><div class="dw-cell" title="0.73">0.73</div></td><td><div class="dw-cell" title="4.56%">4.56%</div></td><td><div class="dw-cell" title="2093">2093</div></td></tr>
+            <tr><td><div class="dw-cell" title="4">4</div></td><td><div class="dw-cell" title="Texas">Texas</div></td><td><div class="dw-cell" title="4.1%">4.1%</div></td><td><div class="dw-cell" title="67942">67942</div></td><td><div class="dw-cell" title="54060">54060</div></td><td><div class="dw-cell" title="0.8">0.8</div></td><td><div class="dw-cell" title="35.8">35.8</div></td><td><div class="dw-cell" title="78.1%">78.1%</div></td><td><div class="dw-cell" title="72.2%">72.2%</div></td><td><div class="dw-cell" title="35.4%">35.4%</div></td><td><div class="dw-cell" title="21.9">21.9</div></td><td><div class="dw-cell" title="27.8">27.8</div></td><td><div class="dw-cell" title="0.67">0.67</div></td><td><div class="dw-cell" title="3.65%">3.65%</div></td><td><div class="dw-cell" title="2640">2640</div></td></tr>
+            <tr><td><div class="dw-cell" title="5">5</div></td><td><div class="dw-cell" title="District of Columbia">District of Columbia</div></td><td><div class="dw-cell" title="5.2%">5.2%</div></td><td><div class="dw-cell" title="103658">103658</div></td><td><div class="dw-cell" title="92200">92200</div></td><td><div class="dw-cell" title="0.89">0.89</div></td><td><div class="dw-cell" title="35.8">35.8</div></td><td><div class="dw-cell" title="87.7%">87.7%</div></td><td><div class="dw-cell" title="84.8%">84.8%</div></td><td><div class="dw-cell" title="30.7%">30.7%</div></td><td><div class="dw-cell" title="12.3">12.3</div></td><td><div class="dw-cell" title="15.2">15.2</div></td><td><div class="dw-cell" title="0.65">0.65</div></td><td><div class="dw-cell" title="3.30%">3.30%</div></td><td><div class="dw-cell" title="2930">2930</div></td></tr>
+            <tr><td><div class="dw-cell" title="6">6</div></td><td><div class="dw-cell" title="Alabama">Alabama</div></td><td><div class="dw-cell" title="3.1%">3.1%</div></td><td><div class="dw-cell" title="56684">56684</div></td><td><div class="dw-cell" title="47096">47096</div></td><td><div class="dw-cell" title="0.83">0.83</div></td><td><div class="dw-cell" title="34.7">34.7</div></td><td><div class="dw-cell" title="76.7%">76.7%</div></td><td><div class="dw-cell" title="70.9%">70.9%</div></td><td><div class="dw-cell" title="38.2%">38.2%</div></td><td><div class="dw-cell" title="23.3">23.3</div></td><td><div class="dw-cell" title="29.1">29.1</div></td><td><div class="dw-cell" title="0.64">0.64</div></td><td><div class="dw-cell" title="3.17%">3.17%</div></td><td><div class="dw-cell" title="3055">3055</div></td></tr>
+            <tr><td><div class="dw-cell" title="7">7</div></td><td><div class="dw-cell" title="Nevada">Nevada</div></td><td><div class="dw-cell" title="5.6%">5.6%</div></td><td><div class="dw-cell" title="68657">68657</div></td><td><div class="dw-cell" title="56103">56103</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="34.2">34.2</div></td><td><div class="dw-cell" title="78.6%">78.6%</div></td><td><div class="dw-cell" title="74.3%">74.3%</div></td><td><div class="dw-cell" title="32.6%">32.6%</div></td><td><div class="dw-cell" title="21.4">21.4</div></td><td><div class="dw-cell" title="25.7">25.7</div></td><td><div class="dw-cell" title="0.63">0.63</div></td><td><div class="dw-cell" title="3.12%">3.12%</div></td><td><div class="dw-cell" title="3105">3105</div></td></tr>
+            <tr><td><div class="dw-cell" title="8">8</div></td><td><div class="dw-cell" title="Mississippi">Mississippi</div></td><td><div class="dw-cell" title="3.2%">3.2%</div></td><td><div class="dw-cell" title="52017">52017</div></td><td><div class="dw-cell" title="43947">43947</div></td><td><div class="dw-cell" title="0.84">0.84</div></td><td><div class="dw-cell" title="34.9">34.9</div></td><td><div class="dw-cell" title="75.6%">75.6%</div></td><td><div class="dw-cell" title="66.6%">66.6%</div></td><td><div class="dw-cell" title="32.6%">32.6%</div></td><td><div class="dw-cell" title="24.4">24.4</div></td><td><div class="dw-cell" title="33.4">33.4</div></td><td><div class="dw-cell" title="0.61">0.61</div></td><td><div class="dw-cell" title="2.87%">2.87%</div></td><td><div class="dw-cell" title="3384">3384</div></td></tr>
+            <tr><td><div class="dw-cell" title="9">9</div></td><td><div class="dw-cell" title="Arizona">Arizona</div></td><td><div class="dw-cell" title="3.6%">3.6%</div></td><td><div class="dw-cell" title="64456">64456</div></td><td><div class="dw-cell" title="56211">56211</div></td><td><div class="dw-cell" title="0.87">0.87</div></td><td><div class="dw-cell" title="35.1">35.1</div></td><td><div class="dw-cell" title="80.8%">80.8%</div></td><td><div class="dw-cell" title="78.7%">78.7%</div></td><td><div class="dw-cell" title="33.2%">33.2%</div></td><td><div class="dw-cell" title="19.2">19.2</div></td><td><div class="dw-cell" title="21.3">21.3</div></td><td><div class="dw-cell" title="0.61">0.61</div></td><td><div class="dw-cell" title="2.80%">2.80%</div></td><td><div class="dw-cell" title="3471">3471</div></td></tr>
+            <tr><td><div class="dw-cell" title="10">10</div></td><td><div class="dw-cell" title="Ohio">Ohio</div></td><td><div class="dw-cell" title="4.3%">4.3%</div></td><td><div class="dw-cell" title="64225">64225</div></td><td><div class="dw-cell" title="52708">52708</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="34.1">34.1</div></td><td><div class="dw-cell" title="80%">80%</div></td><td><div class="dw-cell" title="73.6%">73.6%</div></td><td><div class="dw-cell" title="35.2%">35.2%</div></td><td><div class="dw-cell" title="20">20</div></td><td><div class="dw-cell" title="26.4">26.4</div></td><td><div class="dw-cell" title="0.59">0.59</div></td><td><div class="dw-cell" title="2.60%">2.60%</div></td><td><div class="dw-cell" title="3746">3746</div></td></tr>
+            <tr><td><div class="dw-cell" title="11">11</div></td><td><div class="dw-cell" title="Michigan">Michigan</div></td><td><div class="dw-cell" title="4.7%">4.7%</div></td><td><div class="dw-cell" title="63221">63221</div></td><td><div class="dw-cell" title="54197">54197</div></td><td><div class="dw-cell" title="0.86">0.86</div></td><td><div class="dw-cell" title="34">34</div></td><td><div class="dw-cell" title="81.1%">81.1%</div></td><td><div class="dw-cell" title="74.7%">74.7%</div></td><td><div class="dw-cell" title="32.1%">32.1%</div></td><td><div class="dw-cell" title="18.9">18.9</div></td><td><div class="dw-cell" title="25.3">25.3</div></td><td><div class="dw-cell" title="0.58">0.58</div></td><td><div class="dw-cell" title="2.56%">2.56%</div></td><td><div class="dw-cell" title="3806">3806</div></td></tr>
+            <tr><td><div class="dw-cell" title="12">12</div></td><td><div class="dw-cell" title="Florida">Florida</div></td><td><div class="dw-cell" title="3.4%">3.4%</div></td><td><div class="dw-cell" title="70390">70390</div></td><td><div class="dw-cell" title="62618">62618</div></td><td><div class="dw-cell" title="0.89">0.89</div></td><td><div class="dw-cell" title="34.2">34.2</div></td><td><div class="dw-cell" title="80.9%">80.9%</div></td><td><div class="dw-cell" title="74.6%">74.6%</div></td><td><div class="dw-cell" title="33.7%">33.7%</div></td><td><div class="dw-cell" title="19.1">19.1</div></td><td><div class="dw-cell" title="25.4">25.4</div></td><td><div class="dw-cell" title="0.58">0.58</div></td><td><div class="dw-cell" title="2.49%">2.49%</div></td><td><div class="dw-cell" title="3916">3916</div></td></tr>
+            <tr><td><div class="dw-cell" title="13">13</div></td><td><div class="dw-cell" title="Alaska">Alaska</div></td><td><div class="dw-cell" title="4.6%">4.6%</div></td><td><div class="dw-cell" title="75247">75247</div></td><td><div class="dw-cell" title="66356">66356</div></td><td><div class="dw-cell" title="0.88">0.88</div></td><td><div class="dw-cell" title="33.9">33.9</div></td><td><div class="dw-cell" title="81.6%">81.6%</div></td><td><div class="dw-cell" title="79.1%">79.1%</div></td><td><div class="dw-cell" title="31.6%">31.6%</div></td><td><div class="dw-cell" title="18.4">18.4</div></td><td><div class="dw-cell" title="20.9">20.9</div></td><td><div class="dw-cell" title="0.57">0.57</div></td><td><div class="dw-cell" title="2.44%">2.44%</div></td><td><div class="dw-cell" title="3998">3998</div></td></tr>
+            <tr><td><div class="dw-cell" title="14">14</div></td><td><div class="dw-cell" title="South Carolina">South Carolina</div></td><td><div class="dw-cell" title="4.1%">4.1%</div></td><td><div class="dw-cell" title="59995">59995</div></td><td><div class="dw-cell" title="51423">51423</div></td><td><div class="dw-cell" title="0.86">0.86</div></td><td><div class="dw-cell" title="33.8">33.8</div></td><td><div class="dw-cell" title="80%">80%</div></td><td><div class="dw-cell" title="73.7%">73.7%</div></td><td><div class="dw-cell" title="32.8%">32.8%</div></td><td><div class="dw-cell" title="20">20</div></td><td><div class="dw-cell" title="26.3">26.3</div></td><td><div class="dw-cell" title="0.56">0.56</div></td><td><div class="dw-cell" title="2.33%">2.33%</div></td><td><div class="dw-cell" title="4192">4192</div></td></tr>
+            <tr><td><div class="dw-cell" title="15">15</div></td><td><div class="dw-cell" title="California">California</div></td><td><div class="dw-cell" title="5.3%">5.3%</div></td><td><div class="dw-cell" title="85518">85518</div></td><td><div class="dw-cell" title="67565">67565</div></td><td><div class="dw-cell" title="0.79">0.79</div></td><td><div class="dw-cell" title="33.8">33.8</div></td><td><div class="dw-cell" title="79.3%">79.3%</div></td><td><div class="dw-cell" title="77.1%">77.1%</div></td><td><div class="dw-cell" title="32.6%">32.6%</div></td><td><div class="dw-cell" title="20.7">20.7</div></td><td><div class="dw-cell" title="22.9">22.9</div></td><td><div class="dw-cell" title="0.56">0.56</div></td><td><div class="dw-cell" title="2.31%">2.31%</div></td><td><div class="dw-cell" title="4229">4229</div></td></tr>
+            <tr><td><div class="dw-cell" title="16">16</div></td><td><div class="dw-cell" title="Tennessee">Tennessee</div></td><td><div class="dw-cell" title="3.4%">3.4%</div></td><td><div class="dw-cell" title="64908">64908</div></td><td><div class="dw-cell" title="51507">51507</div></td><td><div class="dw-cell" title="0.79">0.79</div></td><td><div class="dw-cell" title="34.6">34.6</div></td><td><div class="dw-cell" title="76.5%">76.5%</div></td><td><div class="dw-cell" title="74%">74%</div></td><td><div class="dw-cell" title="33.9%">33.9%</div></td><td><div class="dw-cell" title="23.5">23.5</div></td><td><div class="dw-cell" title="26">26</div></td><td><div class="dw-cell" title="0.55">0.55</div></td><td><div class="dw-cell" title="2.26%">2.26%</div></td><td><div class="dw-cell" title="4325">4325</div></td></tr>
+            <tr><td><div class="dw-cell" title="17">17</div></td><td><div class="dw-cell" title="Arkansas">Arkansas</div></td><td><div class="dw-cell" title="3.5%">3.5%</div></td><td><div class="dw-cell" title="59663">59663</div></td><td><div class="dw-cell" title="46259">46259</div></td><td><div class="dw-cell" title="0.78">0.78</div></td><td><div class="dw-cell" title="34.9">34.9</div></td><td><div class="dw-cell" title="74.1%">74.1%</div></td><td><div class="dw-cell" title="67.5%">67.5%</div></td><td><div class="dw-cell" title="30.6%">30.6%</div></td><td><div class="dw-cell" title="25.9">25.9</div></td><td><div class="dw-cell" title="32.5">32.5</div></td><td><div class="dw-cell" title="0.55">0.55</div></td><td><div class="dw-cell" title="2.24%">2.24%</div></td><td><div class="dw-cell" title="4364">4364</div></td></tr>
+            <tr><td><div class="dw-cell" title="18">18</div></td><td><div class="dw-cell" title="Georgia">Georgia</div></td><td><div class="dw-cell" title="3.5%">3.5%</div></td><td><div class="dw-cell" title="62393">62393</div></td><td><div class="dw-cell" title="52806">52806</div></td><td><div class="dw-cell" title="0.85">0.85</div></td><td><div class="dw-cell" title="34.3">34.3</div></td><td><div class="dw-cell" title="81.5%">81.5%</div></td><td><div class="dw-cell" title="75.4%">75.4%</div></td><td><div class="dw-cell" title="33.6%">33.6%</div></td><td><div class="dw-cell" title="18.5">18.5</div></td><td><div class="dw-cell" title="24.6">24.6</div></td><td><div class="dw-cell" title="0.54">0.54</div></td><td><div class="dw-cell" title="2.17%">2.17%</div></td><td><div class="dw-cell" title="4508">4508</div></td></tr>
+            <tr><td><div class="dw-cell" title="19">19</div></td><td><div class="dw-cell" title="Pennsylvania">Pennsylvania</div></td><td><div class="dw-cell" title="3.6%">3.6%</div></td><td><div class="dw-cell" title="71148">71148</div></td><td><div class="dw-cell" title="59260">59260</div></td><td><div class="dw-cell" title="0.83">0.83</div></td><td><div class="dw-cell" title="34.1">34.1</div></td><td><div class="dw-cell" title="80%">80%</div></td><td><div class="dw-cell" title="73.6%">73.6%</div></td><td><div class="dw-cell" title="32.8%">32.8%</div></td><td><div class="dw-cell" title="20">20</div></td><td><div class="dw-cell" title="26.4">26.4</div></td><td><div class="dw-cell" title="0.53">0.53</div></td><td><div class="dw-cell" title="2.07%">2.07%</div></td><td><div class="dw-cell" title="4731">4731</div></td></tr>
+            <tr><td><div class="dw-cell" title="20">20</div></td><td><div class="dw-cell" title="New Mexico">New Mexico</div></td><td><div class="dw-cell" title="4.1%">4.1%</div></td><td><div class="dw-cell" title="57652">57652</div></td><td><div class="dw-cell" title="48119">48119</div></td><td><div class="dw-cell" title="0.83">0.83</div></td><td><div class="dw-cell" title="33.4">33.4</div></td><td><div class="dw-cell" title="76.9%">76.9%</div></td><td><div class="dw-cell" title="75.9%">75.9%</div></td><td><div class="dw-cell" title="32.1%">32.1%</div></td><td><div class="dw-cell" title="23.1">23.1</div></td><td><div class="dw-cell" title="24.1">24.1</div></td><td><div class="dw-cell" title="0.52">0.52</div></td><td><div class="dw-cell" title="2.02%">2.02%</div></td><td><div class="dw-cell" title="4850">4850</div></td></tr>
+            <tr><td><div class="dw-cell" title="21">21</div></td><td><div class="dw-cell" title="Oklahoma">Oklahoma</div></td><td><div class="dw-cell" title="3.3%">3.3%</div></td><td><div class="dw-cell" title="62661">62661</div></td><td><div class="dw-cell" title="46319">46319</div></td><td><div class="dw-cell" title="0.74">0.74</div></td><td><div class="dw-cell" title="35">35</div></td><td><div class="dw-cell" title="79.6%">79.6%</div></td><td><div class="dw-cell" title="69%">69%</div></td><td><div class="dw-cell" title="33.9%">33.9%</div></td><td><div class="dw-cell" title="20.4">20.4</div></td><td><div class="dw-cell" title="31">31</div></td><td><div class="dw-cell" title="0.51">0.51</div></td><td><div class="dw-cell" title="1.94%">1.94%</div></td><td><div class="dw-cell" title="5055">5055</div></td></tr>
+            <tr><td><div class="dw-cell" title="22">22</div></td><td><div class="dw-cell" title="Oregon">Oregon</div></td><td><div class="dw-cell" title="4.2%">4.2%</div></td><td><div class="dw-cell" title="70685">70685</div></td><td><div class="dw-cell" title="58150">58150</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="33.9">33.9</div></td><td><div class="dw-cell" title="81%">81%</div></td><td><div class="dw-cell" title="80.6%">80.6%</div></td><td><div class="dw-cell" title="32.6%">32.6%</div></td><td><div class="dw-cell" title="19">19</div></td><td><div class="dw-cell" title="19.4">19.4</div></td><td><div class="dw-cell" title="0.51">0.51</div></td><td><div class="dw-cell" title="1.93%">1.93%</div></td><td><div class="dw-cell" title="5081">5081</div></td></tr>
+            <tr><td><div class="dw-cell" title="23">23</div></td><td><div class="dw-cell" title="Indiana">Indiana</div></td><td><div class="dw-cell" title="4.2%">4.2%</div></td><td><div class="dw-cell" title="63802">63802</div></td><td><div class="dw-cell" title="51821">51821</div></td><td><div class="dw-cell" title="0.81">0.81</div></td><td><div class="dw-cell" title="33.8">33.8</div></td><td><div class="dw-cell" title="79.8%">79.8%</div></td><td><div class="dw-cell" title="75.6%">75.6%</div></td><td><div class="dw-cell" title="31.2%">31.2%</div></td><td><div class="dw-cell" title="20.2">20.2</div></td><td><div class="dw-cell" title="24.4">24.4</div></td><td><div class="dw-cell" title="0.5">0.5</div></td><td><div class="dw-cell" title="1.85%">1.85%</div></td><td><div class="dw-cell" title="5305">5305</div></td></tr>
+            <tr><td><div class="dw-cell" title="24">24</div></td><td><div class="dw-cell" title="Idaho">Idaho</div></td><td><div class="dw-cell" title="3.7%">3.7%</div></td><td><div class="dw-cell" title="61836">61836</div></td><td><div class="dw-cell" title="48098">48098</div></td><td><div class="dw-cell" title="0.78">0.78</div></td><td><div class="dw-cell" title="34.1">34.1</div></td><td><div class="dw-cell" title="83.8%">83.8%</div></td><td><div class="dw-cell" title="78.9%">78.9%</div></td><td><div class="dw-cell" title="35.9%">35.9%</div></td><td><div class="dw-cell" title="16.2">16.2</div></td><td><div class="dw-cell" title="21.1">21.1</div></td><td><div class="dw-cell" title="0.49">0.49</div></td><td><div class="dw-cell" title="1.74%">1.74%</div></td><td><div class="dw-cell" title="5647">5647</div></td></tr>
+            <tr><td><div class="dw-cell" title="25">25</div></td><td><div class="dw-cell" title="Illinois">Illinois</div></td><td><div class="dw-cell" title="5%">5%</div></td><td><div class="dw-cell" title="74197">74197</div></td><td><div class="dw-cell" title="60612">60612</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="33.4">33.4</div></td><td><div class="dw-cell" title="81.9%">81.9%</div></td><td><div class="dw-cell" title="78.6%">78.6%</div></td><td><div class="dw-cell" title="28.5%">28.5%</div></td><td><div class="dw-cell" title="18.1">18.1</div></td><td><div class="dw-cell" title="21.4">21.4</div></td><td><div class="dw-cell" title="0.47">0.47</div></td><td><div class="dw-cell" title="1.61%">1.61%</div></td><td><div class="dw-cell" title="6111">6111</div></td></tr>
+            <tr><td><div class="dw-cell" title="26">26</div></td><td><div class="dw-cell" title="Missouri">Missouri</div></td><td><div class="dw-cell" title="3.7%">3.7%</div></td><td><div class="dw-cell" title="64740">64740</div></td><td><div class="dw-cell" title="54405">54405</div></td><td><div class="dw-cell" title="0.84">0.84</div></td><td><div class="dw-cell" title="33.2">33.2</div></td><td><div class="dw-cell" title="80.1%">80.1%</div></td><td><div class="dw-cell" title="71.9%">71.9%</div></td><td><div class="dw-cell" title="30.2%">30.2%</div></td><td><div class="dw-cell" title="19.9">19.9</div></td><td><div class="dw-cell" title="28.1">28.1</div></td><td><div class="dw-cell" title="0.46">0.46</div></td><td><div class="dw-cell" title="1.57%">1.57%</div></td><td><div class="dw-cell" title="6269">6269</div></td></tr>
+            <tr><td><div class="dw-cell" title="27">27</div></td><td><div class="dw-cell" title="North Carolina">North Carolina</div></td><td><div class="dw-cell" title="3.6%">3.6%</div></td><td><div class="dw-cell" title="64855">64855</div></td><td><div class="dw-cell" title="53334">53334</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="33.9">33.9</div></td><td><div class="dw-cell" title="80.6%">80.6%</div></td><td><div class="dw-cell" title="78.1%">78.1%</div></td><td><div class="dw-cell" title="30.1%">30.1%</div></td><td><div class="dw-cell" title="19.4">19.4</div></td><td><div class="dw-cell" title="21.9">21.9</div></td><td><div class="dw-cell" title="0.46">0.46</div></td><td><div class="dw-cell" title="1.55%">1.55%</div></td><td><div class="dw-cell" title="6352">6352</div></td></tr>
+            <tr><td><div class="dw-cell" title="28">28</div></td><td><div class="dw-cell" title="Maine">Maine</div></td><td><div class="dw-cell" title="3.1%">3.1%</div></td><td><div class="dw-cell" title="68129">68129</div></td><td><div class="dw-cell" title="63046">63046</div></td><td><div class="dw-cell" title="0.93">0.93</div></td><td><div class="dw-cell" title="33.3">33.3</div></td><td><div class="dw-cell" title="81%">81%</div></td><td><div class="dw-cell" title="77.4%">77.4%</div></td><td><div class="dw-cell" title="27.5%">27.5%</div></td><td><div class="dw-cell" title="19">19</div></td><td><div class="dw-cell" title="22.6">22.6</div></td><td><div class="dw-cell" title="0.45">0.45</div></td><td><div class="dw-cell" title="1.51%">1.51%</div></td><td><div class="dw-cell" title="6523">6523</div></td></tr>
+            <tr><td><div class="dw-cell" title="29">29</div></td><td><div class="dw-cell" title="Washington">Washington</div></td><td><div class="dw-cell" title="4.5%">4.5%</div></td><td><div class="dw-cell" title="83938">83938</div></td><td><div class="dw-cell" title="62837">62837</div></td><td><div class="dw-cell" title="0.75">0.75</div></td><td><div class="dw-cell" title="34.2">34.2</div></td><td><div class="dw-cell" title="83.6%">83.6%</div></td><td><div class="dw-cell" title="81.9%">81.9%</div></td><td><div class="dw-cell" title="31.3%">31.3%</div></td><td><div class="dw-cell" title="16.4">16.4</div></td><td><div class="dw-cell" title="18.1">18.1</div></td><td><div class="dw-cell" title="0.44">0.44</div></td><td><div class="dw-cell" title="1.46%">1.46%</div></td><td><div class="dw-cell" title="6749">6749</div></td></tr>
+            <tr><td><div class="dw-cell" title="30">30</div></td><td><div class="dw-cell" title="North Dakota">North Dakota</div></td><td><div class="dw-cell" title="2.4%">2.4%</div></td><td><div class="dw-cell" title="70966">70966</div></td><td><div class="dw-cell" title="58090">58090</div></td><td><div class="dw-cell" title="0.82">0.82</div></td><td><div class="dw-cell" title="35.2">35.2</div></td><td><div class="dw-cell" title="84.8%">84.8%</div></td><td><div class="dw-cell" title="78.5%">78.5%</div></td><td><div class="dw-cell" title="30.4%">30.4%</div></td><td><div class="dw-cell" title="15.2">15.2</div></td><td><div class="dw-cell" title="21.5">21.5</div></td><td><div class="dw-cell" title="0.44">0.44</div></td><td><div class="dw-cell" title="1.43%">1.43%</div></td><td><div class="dw-cell" title="6893">6893</div></td></tr>
+            <tr><td><div class="dw-cell" title="31">31</div></td><td><div class="dw-cell" title="New York">New York</div></td><td><div class="dw-cell" title="4.3%">4.3%</div></td><td><div class="dw-cell" title="85733">85733</div></td><td><div class="dw-cell" title="66426">66426</div></td><td><div class="dw-cell" title="0.77">0.77</div></td><td><div class="dw-cell" title="32.8">32.8</div></td><td><div class="dw-cell" title="83%">83%</div></td><td><div class="dw-cell" title="73.9%">73.9%</div></td><td><div class="dw-cell" title="34.1%">34.1%</div></td><td><div class="dw-cell" title="17">17</div></td><td><div class="dw-cell" title="26.1">26.1</div></td><td><div class="dw-cell" title="0.44">0.44</div></td><td><div class="dw-cell" title="1.43%">1.43%</div></td><td><div class="dw-cell" title="6893">6893</div></td></tr>
+            <tr><td><div class="dw-cell" title="32">32</div></td><td><div class="dw-cell" title="Colorado">Colorado</div></td><td><div class="dw-cell" title="4.3%">4.3%</div></td><td><div class="dw-cell" title="82705">82705</div></td><td><div class="dw-cell" title="66448">66448</div></td><td><div class="dw-cell" title="0.8">0.8</div></td><td><div class="dw-cell" title="33.3">33.3</div></td><td><div class="dw-cell" title="84.8%">84.8%</div></td><td><div class="dw-cell" title="82.5%">82.5%</div></td><td><div class="dw-cell" title="32.1%">32.1%</div></td><td><div class="dw-cell" title="15.2">15.2</div></td><td><div class="dw-cell" title="17.5">17.5</div></td><td><div class="dw-cell" title="0.43">0.43</div></td><td><div class="dw-cell" title="1.38%">1.38%</div></td><td><div class="dw-cell" title="7146">7146</div></td></tr>
+            <tr><td><div class="dw-cell" title="33">33</div></td><td><div class="dw-cell" title="Delaware">Delaware</div></td><td><div class="dw-cell" title="3.7%">3.7%</div></td><td><div class="dw-cell" title="69282">69282</div></td><td><div class="dw-cell" title="60131">60131</div></td><td><div class="dw-cell" title="0.87">0.87</div></td><td><div class="dw-cell" title="32.1">32.1</div></td><td><div class="dw-cell" title="81.5%">81.5%</div></td><td><div class="dw-cell" title="74%">74%</div></td><td><div class="dw-cell" title="30.7%">30.7%</div></td><td><div class="dw-cell" title="18.5">18.5</div></td><td><div class="dw-cell" title="26">26</div></td><td><div class="dw-cell" title="0.41">0.41</div></td><td><div class="dw-cell" title="1.29%">1.29%</div></td><td><div class="dw-cell" title="7652">7652</div></td></tr>
+            <tr><td><div class="dw-cell" title="34">34</div></td><td><div class="dw-cell" title="Montana">Montana</div></td><td><div class="dw-cell" title="3%">3%</div></td><td><div class="dw-cell" title="67615">67615</div></td><td><div class="dw-cell" title="58499">58499</div></td><td><div class="dw-cell" title="0.87">0.87</div></td><td><div class="dw-cell" title="32.7">32.7</div></td><td><div class="dw-cell" title="81.9%">81.9%</div></td><td><div class="dw-cell" title="80.4%">80.4%</div></td><td><div class="dw-cell" title="32.2%">32.2%</div></td><td><div class="dw-cell" title="18.1">18.1</div></td><td><div class="dw-cell" title="19.6">19.6</div></td><td><div class="dw-cell" title="0.41">0.41</div></td><td><div class="dw-cell" title="1.26%">1.26%</div></td><td><div class="dw-cell" title="7837">7837</div></td></tr>
+            <tr><td><div class="dw-cell" title="35">35</div></td><td><div class="dw-cell" title="Rhode Island">Rhode Island</div></td><td><div class="dw-cell" title="4.3%">4.3%</div></td><td><div class="dw-cell" title="69936">69936</div></td><td><div class="dw-cell" title="58041">58041</div></td><td><div class="dw-cell" title="0.83">0.83</div></td><td><div class="dw-cell" title="33.2">33.2</div></td><td><div class="dw-cell" title="82.2%">82.2%</div></td><td><div class="dw-cell" title="73.6%">73.6%</div></td><td><div class="dw-cell" title="25.1%">25.1%</div></td><td><div class="dw-cell" title="17.8">17.8</div></td><td><div class="dw-cell" title="26.4">26.4</div></td><td><div class="dw-cell" title="0.4">0.4</div></td><td><div class="dw-cell" title="1.21%">1.21%</div></td><td><div class="dw-cell" title="8164">8164</div></td></tr>
+            <tr><td><div class="dw-cell" title="36">36</div></td><td><div class="dw-cell" title="Vermont">Vermont</div></td><td><div class="dw-cell" title="2.3%">2.3%</div></td><td><div class="dw-cell" title="70086">70086</div></td><td><div class="dw-cell" title="62629">62629</div></td><td><div class="dw-cell" title="0.89">0.89</div></td><td><div class="dw-cell" title="33.6">33.6</div></td><td><div class="dw-cell" title="86%">86%</div></td><td><div class="dw-cell" title="79.7%">79.7%</div></td><td><div class="dw-cell" title="30.5%">30.5%</div></td><td><div class="dw-cell" title="14">14</div></td><td><div class="dw-cell" title="20.3">20.3</div></td><td><div class="dw-cell" title="0.4">0.4</div></td><td><div class="dw-cell" title="1.21%">1.21%</div></td><td><div class="dw-cell" title="8164">8164</div></td></tr>
+            <tr><td><div class="dw-cell" title="37">37</div></td><td><div class="dw-cell" title="Wyoming">Wyoming</div></td><td><div class="dw-cell" title="3.2%">3.2%</div></td><td><div class="dw-cell" title="85945">85945</div></td><td><div class="dw-cell" title="59543">59543</div></td><td><div class="dw-cell" title="0.69">0.69</div></td><td><div class="dw-cell" title="34.5">34.5</div></td><td><div class="dw-cell" title="82.4%">82.4%</div></td><td><div class="dw-cell" title="73.9%">73.9%</div></td><td><div class="dw-cell" title="32.3%">32.3%</div></td><td><div class="dw-cell" title="17.6">17.6</div></td><td><div class="dw-cell" title="26.1">26.1</div></td><td><div class="dw-cell" title="0.39">0.39</div></td><td><div class="dw-cell" title="1.17%">1.17%</div></td><td><div class="dw-cell" title="8447">8447</div></td></tr>
+            <tr><td><div class="dw-cell" title="38">38</div></td><td><div class="dw-cell" title="Massachusetts">Massachusetts</div></td><td><div class="dw-cell" title="4%">4%</div></td><td><div class="dw-cell" title="93927">93927</div></td><td><div class="dw-cell" title="71946">71946</div></td><td><div class="dw-cell" title="0.77">0.77</div></td><td><div class="dw-cell" title="33.4">33.4</div></td><td><div class="dw-cell" title="84.6%">84.6%</div></td><td><div class="dw-cell" title="78%">78%</div></td><td><div class="dw-cell" title="30.7%">30.7%</div></td><td><div class="dw-cell" title="15.4">15.4</div></td><td><div class="dw-cell" title="22">22</div></td><td><div class="dw-cell" title="0.38">0.38</div></td><td><div class="dw-cell" title="1.14%">1.14%</div></td><td><div class="dw-cell" title="8672">8672</div></td></tr>
+            <tr><td><div class="dw-cell" title="39">39</div></td><td><div class="dw-cell" title="Kansas">Kansas</div></td><td><div class="dw-cell" title="3.6%">3.6%</div></td><td><div class="dw-cell" title="68038">68038</div></td><td><div class="dw-cell" title="51082">51082</div></td><td><div class="dw-cell" title="0.75">0.75</div></td><td><div class="dw-cell" title="33.3">33.3</div></td><td><div class="dw-cell" title="82.9%">82.9%</div></td><td><div class="dw-cell" title="75.1%">75.1%</div></td><td><div class="dw-cell" title="32%">32%</div></td><td><div class="dw-cell" title="17.1">17.1</div></td><td><div class="dw-cell" title="24.9">24.9</div></td><td><div class="dw-cell" title="0.38">0.38</div></td><td><div class="dw-cell" title="1.13%">1.13%</div></td><td><div class="dw-cell" title="8750">8750</div></td></tr>
+            <tr><td><div class="dw-cell" title="40">40</div></td><td><div class="dw-cell" title="New Jersey">New Jersey</div></td><td><div class="dw-cell" title="4.5%">4.5%</div></td><td><div class="dw-cell" title="84071">84071</div></td><td><div class="dw-cell" title="65873">65873</div></td><td><div class="dw-cell" title="0.78">0.78</div></td><td><div class="dw-cell" title="33.5">33.5</div></td><td><div class="dw-cell" title="83%">83%</div></td><td><div class="dw-cell" title="75.8%">75.8%</div></td><td><div class="dw-cell" title="24.4%">24.4%</div></td><td><div class="dw-cell" title="17">17</div></td><td><div class="dw-cell" title="24.2">24.2</div></td><td><div class="dw-cell" title="0.36">0.36</div></td><td><div class="dw-cell" title="1.06%">1.06%</div></td><td><div class="dw-cell" title="9334">9334</div></td></tr>
+            <tr><td><div class="dw-cell" title="41">41</div></td><td><div class="dw-cell" title="New Hampshire">New Hampshire</div></td><td><div class="dw-cell" title="2.6%">2.6%</div></td><td><div class="dw-cell" title="82878">82878</div></td><td><div class="dw-cell" title="68900">68900</div></td><td><div class="dw-cell" title="0.83">0.83</div></td><td><div class="dw-cell" title="33.3">33.3</div></td><td><div class="dw-cell" title="85.1%">85.1%</div></td><td><div class="dw-cell" title="78.8%">78.8%</div></td><td><div class="dw-cell" title="31.5%">31.5%</div></td><td><div class="dw-cell" title="14.9">14.9</div></td><td><div class="dw-cell" title="21.2">21.2</div></td><td><div class="dw-cell" title="0.36">0.36</div></td><td><div class="dw-cell" title="1.06%">1.06%</div></td><td><div class="dw-cell" title="9334">9334</div></td></tr>
+            <tr><td><div class="dw-cell" title="42">42</div></td><td><div class="dw-cell" title="Iowa">Iowa</div></td><td><div class="dw-cell" title="3%">3%</div></td><td><div class="dw-cell" title="63573">63573</div></td><td><div class="dw-cell" title="49473">49473</div></td><td><div class="dw-cell" title="0.78">0.78</div></td><td><div class="dw-cell" title="34">34</div></td><td><div class="dw-cell" title="82.7%">82.7%</div></td><td><div class="dw-cell" title="75.9%">75.9%</div></td><td><div class="dw-cell" title="27.8%">27.8%</div></td><td><div class="dw-cell" title="17.3">17.3</div></td><td><div class="dw-cell" title="24.1">24.1</div></td><td><div class="dw-cell" title="0.36">0.36</div></td><td><div class="dw-cell" title="1.03%">1.03%</div></td><td><div class="dw-cell" title="9609">9609</div></td></tr>
+            <tr><td><div class="dw-cell" title="43">43</div></td><td><div class="dw-cell" title="Utah">Utah</div></td><td><div class="dw-cell" title="3.2%">3.2%</div></td><td><div class="dw-cell" title="66443">66443</div></td><td><div class="dw-cell" title="52677">52677</div></td><td><div class="dw-cell" title="0.79">0.79</div></td><td><div class="dw-cell" title="33.2">33.2</div></td><td><div class="dw-cell" title="85.8%">85.8%</div></td><td><div class="dw-cell" title="83.8%">83.8%</div></td><td><div class="dw-cell" title="32.1%">32.1%</div></td><td><div class="dw-cell" title="14.2">14.2</div></td><td><div class="dw-cell" title="16.2">16.2</div></td><td><div class="dw-cell" title="0.35">0.35</div></td><td><div class="dw-cell" title="0.99%">0.99%</div></td><td><div class="dw-cell" title="10001">10001</div></td></tr>
+            <tr><td><div class="dw-cell" title="44">44</div></td><td><div class="dw-cell" title="Virginia">Virginia</div></td><td><div class="dw-cell" title="2.9%">2.9%</div></td><td><div class="dw-cell" title="77093">77093</div></td><td><div class="dw-cell" title="58224">58224</div></td><td><div class="dw-cell" title="0.76">0.76</div></td><td><div class="dw-cell" title="33.9">33.9</div></td><td><div class="dw-cell" title="81.9%">81.9%</div></td><td><div class="dw-cell" title="77.7%">77.7%</div></td><td><div class="dw-cell" title="28.6%">28.6%</div></td><td><div class="dw-cell" title="18.1">18.1</div></td><td><div class="dw-cell" title="22.3">22.3</div></td><td><div class="dw-cell" title="0.34">0.34</div></td><td><div class="dw-cell" title="0.95%">0.95%</div></td><td><div class="dw-cell" title="10426">10426</div></td></tr>
+            <tr><td><div class="dw-cell" title="45">45</div></td><td><div class="dw-cell" title="Hawaii">Hawaii</div></td><td><div class="dw-cell" title="3%">3%</div></td><td><div class="dw-cell" title="69520">69520</div></td><td><div class="dw-cell" title="60711">60711</div></td><td><div class="dw-cell" title="0.87">0.87</div></td><td><div class="dw-cell" title="33">33</div></td><td><div class="dw-cell" title="83.5%">83.5%</div></td><td><div class="dw-cell" title="78.3%">78.3%</div></td><td><div class="dw-cell" title="23.9%">23.9%</div></td><td><div class="dw-cell" title="16.5">16.5</div></td><td><div class="dw-cell" title="21.7">21.7</div></td><td><div class="dw-cell" title="0.32">0.32</div></td><td><div class="dw-cell" title="0.88%">0.88%</div></td><td><div class="dw-cell" title="11264">11264</div></td></tr>
+            <tr><td><div class="dw-cell" title="46">46</div></td><td><div class="dw-cell" title="Wisconsin">Wisconsin</div></td><td><div class="dw-cell" title="3%">3%</div></td><td><div class="dw-cell" title="67586">67586</div></td><td><div class="dw-cell" title="54705">54705</div></td><td><div class="dw-cell" title="0.81">0.81</div></td><td><div class="dw-cell" title="32.6">32.6</div></td><td><div class="dw-cell" title="82.5%">82.5%</div></td><td><div class="dw-cell" title="73.2%">73.2%</div></td><td><div class="dw-cell" title="28.1%">28.1%</div></td><td><div class="dw-cell" title="17.5">17.5</div></td><td><div class="dw-cell" title="26.8">26.8</div></td><td><div class="dw-cell" title="0.32">0.32</div></td><td><div class="dw-cell" title="0.87%">0.87%</div></td><td><div class="dw-cell" title="11394">11394</div></td></tr>
+            <tr><td><div class="dw-cell" title="47">47</div></td><td><div class="dw-cell" title="Connecticut">Connecticut</div></td><td><div class="dw-cell" title="3.2%">3.2%</div></td><td><div class="dw-cell" title="93235">93235</div></td><td><div class="dw-cell" title="66645">66645</div></td><td><div class="dw-cell" title="0.71">0.71</div></td><td><div class="dw-cell" title="33.5">33.5</div></td><td><div class="dw-cell" title="85.6%">85.6%</div></td><td><div class="dw-cell" title="74.5%">74.5%</div></td><td><div class="dw-cell" title="30.5%">30.5%</div></td><td><div class="dw-cell" title="14.4">14.4</div></td><td><div class="dw-cell" title="25.5">25.5</div></td><td><div class="dw-cell" title="0.3">0.3</div></td><td><div class="dw-cell" title="0.83%">0.83%</div></td><td><div class="dw-cell" title="11948">11948</div></td></tr>
+            <tr><td><div class="dw-cell" title="48">48</div></td><td><div class="dw-cell" title="Maryland">Maryland</div></td><td><div class="dw-cell" title="3%">3%</div></td><td><div class="dw-cell" title="78538">78538</div></td><td><div class="dw-cell" title="58310">58310</div></td><td><div class="dw-cell" title="0.74">0.74</div></td><td><div class="dw-cell" title="33.3">33.3</div></td><td><div class="dw-cell" title="83.5%">83.5%</div></td><td><div class="dw-cell" title="77.3%">77.3%</div></td><td><div class="dw-cell" title="29.1%">29.1%</div></td><td><div class="dw-cell" title="16.5">16.5</div></td><td><div class="dw-cell" title="22.7">22.7</div></td><td><div class="dw-cell" title="0.29">0.29</div></td><td><div class="dw-cell" title="0.80%">0.80%</div></td><td><div class="dw-cell" title="12400">12400</div></td></tr>
+            <tr><td><div class="dw-cell" title="49">49</div></td><td><div class="dw-cell" title="Minnesota">Minnesota</div></td><td><div class="dw-cell" title="3%">3%</div></td><td><div class="dw-cell" title="74943">74943</div></td><td><div class="dw-cell" title="58433">58433</div></td><td><div class="dw-cell" title="0.78">0.78</div></td><td><div class="dw-cell" title="33.1">33.1</div></td><td><div class="dw-cell" title="84.5%">84.5%</div></td><td><div class="dw-cell" title="77.2%">77.2%</div></td><td><div class="dw-cell" title="26.8%">26.8%</div></td><td><div class="dw-cell" title="15.5">15.5</div></td><td><div class="dw-cell" title="22.8">22.8</div></td><td><div class="dw-cell" title="0.28">0.28</div></td><td><div class="dw-cell" title="0.75%">0.75%</div></td><td><div class="dw-cell" title="13233">13233</div></td></tr>
+            <tr><td><div class="dw-cell" title="50">50</div></td><td><div class="dw-cell" title="Nebraska">Nebraska</div></td><td><div class="dw-cell" title="2.8%">2.8%</div></td><td><div class="dw-cell" title="71859">71859</div></td><td><div class="dw-cell" title="54512">54512</div></td><td><div class="dw-cell" title="0.76">0.76</div></td><td><div class="dw-cell" title="33.2">33.2</div></td><td><div class="dw-cell" title="84.3%">84.3%</div></td><td><div class="dw-cell" title="76.2%">76.2%</div></td><td><div class="dw-cell" title="26.9%">26.9%</div></td><td><div class="dw-cell" title="15.7">15.7</div></td><td><div class="dw-cell" title="23.8">23.8</div></td><td><div class="dw-cell" title="0.26">0.26</div></td><td><div class="dw-cell" title="0.70%">0.70%</div></td><td><div class="dw-cell" title="14186">14186</div></td></tr>
+            <tr><td><div class="dw-cell" title="51">51</div></td><td><div class="dw-cell" title="South Dakota">South Dakota</div></td><td><div class="dw-cell" title="1.8%">1.8%</div></td><td><div class="dw-cell" title="73959">73959</div></td><td><div class="dw-cell" title="54100">54100</div></td><td><div class="dw-cell" title="0.73">0.73</div></td><td><div class="dw-cell" title="33.3">33.3</div></td><td><div class="dw-cell" title="82%">82%</div></td><td><div class="dw-cell" title="74.3%">74.3%</div></td><td><div class="dw-cell" title="24.7%">24.7%</div></td><td><div class="dw-cell" title="18">18</div></td><td><div class="dw-cell" title="25.7">25.7</div></td><td><div class="dw-cell" title="0.18">0.18</div></td><td><div class="dw-cell" title="0.51%">0.51%</div></td><td><div class="dw-cell" title="19508">19508</div></td></tr>
+            <tr class="dw-empty" style="display:none;"><td colspan="15">No Matches Found.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dw-page-status " style="padding:6px 2px 4px; color:#6b7280; font:12px/1.2 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;">
+      <span id="dw-page-status-text"></span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="vi-footer " role="contentinfo">
+    <div class="footer-inner">
+            <div class="footer-notes-wrap vi-hide">
+              <div class="footer-notes"></div>
+            </div>
+      <div class="footer-logo">
+        <img src="https://i.postimg.cc/VkynWsGQ/VI-logo-Dark.png" alt="VegasInsider Logo" width="140" height="auto" loading="lazy" decoding="async" />
+      </div>
+</div>
+  </div>
+
+  <script>
+  (function(){
+    const root = document.getElementById('bt-block');
+    if (!root || root.dataset.dwInit === '1') return;
+    root.dataset.dwInit='1';
+
+    const table = root.querySelector('table.dw-table');
+    const tb = table ? table.tBodies[0] : null;
+    const scroller = root.querySelector('.dw-scroll');
+    const controls = root.querySelector('.dw-controls');
+    if(!table || !tb || !scroller || !controls) return;
+
+    const controlsHidden = controls.classList.contains('vi-hide');
+
+    const searchFieldWrap = controls.querySelector('.dw-field');
+    const searchInput = controls.querySelector('.dw-input');
+    const clearBtn = controls.querySelector('.dw-clear');
+
+    const pagerWrap = controls.querySelector('.dw-pager');
+    const sizeSel = pagerWrap ? pagerWrap.querySelector('#bt-size') : null;
+    const prevBtn = pagerWrap ? pagerWrap.querySelector('[data-page="prev"]') : null;
+    const nextBtn = pagerWrap ? pagerWrap.querySelector('[data-page="next"]') : null;
+
+    const embedWrap = controls.querySelector('.dw-embed');
+    const downloadBtn = embedWrap ? embedWrap.querySelector('#dw-download-png') : null;
+    const menu = embedWrap ? embedWrap.querySelector('#dw-download-menu') : null;
+    const btnTop10 = embedWrap ? embedWrap.querySelector('#dw-dl-top10') : null;
+    const btnBottom10 = embedWrap ? embedWrap.querySelector('#dw-dl-bottom10') : null;
+    const btnCsv = embedWrap ? embedWrap.querySelector('#dw-dl-csv') : null;
+    const btnEmbed = embedWrap ? embedWrap.querySelector('#dw-embed-script') : null;
+    const menuTitle = embedWrap ? embedWrap.querySelector('#dw-menu-title') : null;
+
+    const emptyRow = tb.querySelector('.dw-empty');
+    const pageStatus = document.getElementById('dw-page-status-text');
+
+    const hasSearch = !controlsHidden
+      && !!searchFieldWrap && !searchFieldWrap.classList.contains('vi-hide')
+      && !!searchInput && !!clearBtn;
+
+    const hasPager = !controlsHidden
+      && !!pagerWrap && !pagerWrap.classList.contains('vi-hide')
+      && !!sizeSel && !!prevBtn && !!nextBtn;
+
+    const hasEmbed = !controlsHidden
+      && !!embedWrap && !embedWrap.classList.contains('vi-hide')
+      && !!downloadBtn && !!menu && !!btnEmbed;
+
+    Array.from(tb.rows).forEach((r,i)=>{ if(!r.classList.contains('dw-empty')) r.dataset.idx=i; });
+
+    let pageSize = hasPager ? (parseInt(sizeSel.value,10) || 10) : 0;
+    let page = 1;
+    let filter = '';
+
+    const onScrollShadow = ()=> scroller.classList.toggle('scrolled', scroller.scrollTop > 0);
+    scroller.addEventListener('scroll', onScrollShadow); onScrollShadow();
+
+    const heads = Array.from(table.tHead.rows[0].cells);
+    heads.forEach((th,i)=>{
+      th.classList.add('sortable'); th.setAttribute('aria-sort','none'); th.dataset.sort='none'; th.tabIndex=0;
+      const type = th.dataset.type || 'text';
+      const go = ()=> sortBy(i,type,th);
+      th.addEventListener('click',go);
+      th.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+    });
+
+    function textOf(tr,i){ return (tr.children[i].innerText||'').trim(); }
+
+    function sortBy(colIdx, type, th){
+      const rows = Array.from(tb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const current = th.dataset.sort || 'none';
+      const next = current==='none' ? 'asc' : current==='asc' ? 'desc' : 'none';
+
+      heads.forEach(h=>{
+        h.dataset.sort='none';
+        h.setAttribute('aria-sort','none');
+        h.classList.remove('is-sorted');
+      });
+
+      if(next === 'none'){
+        rows.sort((a,b)=>(+a.dataset.idx)-(+b.dataset.idx));
+        rows.forEach(r=>tb.insertBefore(r, emptyRow));
+        renderPage();
+        return;
+      }
+
+      th.dataset.sort = next;
+      th.setAttribute('aria-sort', next==='asc'?'ascending':'descending');
+
+      const mul = next==='asc'?1:-1;
+      rows.sort((a,b)=>{
+        let v1=textOf(a,colIdx), v2=textOf(b,colIdx);
+        if((type||'text')==='num'){
+          v1=parseFloat(v1.replace(/[^0-9.\-]/g,'')); if(isNaN(v1)) v1=-Infinity;
+          v2=parseFloat(v2.replace(/[^0-9.\-]/g,'')); if(isNaN(v2)) v2=-Infinity;
+        }else{
+          v1=(v1+'').toLowerCase();
+          v2=(v2+'').toLowerCase();
+        }
+        if(v1>v2) return 1*mul;
+        if(v1<v2) return -1*mul;
+        return 0;
+      });
+      rows.forEach(r=>tb.insertBefore(r, emptyRow));
+      th.classList.add('is-sorted');
+      renderPage();
+    }
+
+    function matchesFilter(tr){
+      if(tr.classList.contains('dw-empty')) return false;
+      if(!filter) return true;
+      return tr.innerText.toLowerCase().includes(filter);
+    }
+
+    function setPageStatus(totalVisible, pages){
+      if(!pageStatus) return;
+      if(totalVisible === 0){ pageStatus.textContent = ""; return; }
+      if(!hasPager || pageSize === 0){ pageStatus.textContent = ""; return; }
+      pageStatus.textContent = "Page " + page + " Of " + pages;
+    }
+
+    function renderPage(){
+      const ordered = Array.from(tb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const visible = ordered.filter(matchesFilter);
+      const total = visible.length;
+
+      ordered.forEach(r=>{ r.style.display='none'; });
+      let shown = [];
+
+      if(total===0){
+        if(emptyRow){
+          emptyRow.style.display='table-row';
+          emptyRow.firstElementChild.colSpan = heads.length;
+        }
+        if(hasPager){ prevBtn.disabled = nextBtn.disabled = true; }
+        setPageStatus(0, 0);
+      }else{
+        if(emptyRow) emptyRow.style.display='none';
+
+        if(!hasPager || pageSize===0){
+          shown = visible;
+          if(hasPager){ prevBtn.disabled = nextBtn.disabled = true; }
+          setPageStatus(total, 1);
+        }else{
+          const pages = Math.max(1, Math.ceil(total / pageSize));
+          page = Math.min(Math.max(1, page), pages);
+          const start = (page-1)*pageSize;
+          const end = start + pageSize;
+          shown = visible.slice(start,end);
+          prevBtn.disabled = page<=1;
+          nextBtn.disabled = page>=pages;
+          setPageStatus(total, pages);
+        }
+      }
+
+      shown.forEach(r=>{ r.style.display='table-row'; });
+
+      scroller.scrollTop = 0;
+    }
+
+    if(hasSearch){
+      const syncClearBtn = ()=> searchFieldWrap.classList.toggle('has-value', !!searchInput.value);
+      let t=null;
+      searchInput.addEventListener('input', e=>{
+        syncClearBtn();
+        clearTimeout(t);
+        t=setTimeout(()=>{
+          filter=(e.target.value||'').toLowerCase().trim();
+          page=1;
+          renderPage();
+        },120);
+      });
+      clearBtn.addEventListener('click', ()=>{
+        searchInput.value='';
+        syncClearBtn();
+        filter='';
+        page=1;
+        renderPage();
+        searchInput.focus();
+      });
+      syncClearBtn();
+    }
+
+    if(hasPager){
+      sizeSel.addEventListener('change', e=>{
+        pageSize = parseInt(e.target.value,10) || 0;
+        page=1;
+        renderPage();
+      });
+      prevBtn.addEventListener('click', ()=>{ page--; renderPage(); });
+      nextBtn.addEventListener('click', ()=>{ page++; renderPage(); });
+    }
+
+    function hideMenu(){ if(menu) menu.classList.add('vi-hide'); }
+    function toggleMenu(){ if(menu) menu.classList.toggle('vi-hide'); }
+
+    document.addEventListener('click', (e)=>{
+      if(!menu || menu.classList.contains('vi-hide')) return;
+      const inMenu = menu.contains(e.target);
+      const inBtn = downloadBtn && downloadBtn.contains(e.target);
+      if(!inMenu && !inBtn) hideMenu();
+    });
+
+    if(hasEmbed && downloadBtn){
+      downloadBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      });
+    }
+
+    /* ===== PNG EXPORT (unchanged) ===== */
+    async function waitForFontsAndImages(el){
+      if (document.fonts && document.fonts.ready){
+        try { await document.fonts.ready; } catch(e){}
+      }
+      const imgs = Array.from(el.querySelectorAll('img'));
+      await Promise.all(imgs.map(img=>{
+        if (img.complete) return Promise.resolve();
+        return new Promise(res=>{
+          img.addEventListener('load', res, { once:true });
+          img.addEventListener('error', res, { once:true });
+        });
+      }));
+    }
+
+    function getFilenameBase(clone){
+      const t = clone.querySelector('.vi-table-header .title')?.textContent || 'table';
+      return (t || 'table')
+        .trim()
+        .replace(/\s+/g,'_')
+        .replace(/[^\w\-]+/g,'')
+        .slice(0,60) || 'table';
+    }
+
+    function escapeCsvCell(value){
+      const s = (value ?? "").toString().replace(/\r?\n/g, " ").trim();
+      if (/[",\n]/.test(s)) {
+        return '"' + s.replace(/"/g, '""') + '"';
+      }
+      return s;
+    }
+
+    function downloadCsv(){
+      try{
+        hideMenu();
+
+        const headsText = heads.map(th => escapeCsvCell(th.innerText || th.textContent || ""));
+        const headerLine = headsText.join(",");
+
+        const ordered = Array.from(tb.rows).filter(r => !r.classList.contains("dw-empty"));
+        const filteredRows = ordered.filter(matchesFilter);
+
+        const lines = [headerLine];
+
+        filteredRows.forEach(tr => {
+          const cells = Array.from(tr.cells).map(td => {
+            const txt = td.innerText || td.textContent || "";
+            return escapeCsvCell(txt);
+          });
+          lines.push(cells.join(","));
+        });
+
+        const csv = lines.join("\n");
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+
+        const base = getFilenameBase(document.querySelector("section.vi-table-embed") || document.body);
+        const filename = (base || "table").slice(0, 70) + ".csv";
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      }catch(err){
+        console.error("CSV export failed:", err);
+      }
+    }
+
+    function showRowsInClone(clone, mode){
+      const cloneTb = clone.querySelector('table.dw-table')?.tBodies?.[0];
+      if(!cloneTb) return;
+
+      const cloneRows = Array.from(cloneTb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const ordered = Array.from(tb.rows).filter(r=>!r.classList.contains('dw-empty'));
+      const visiblePositions = [];
+      for(let i=0;i<ordered.length;i++){
+        if(matchesFilter(ordered[i])) visiblePositions.push(i);
+      }
+
+      const keep = new Set();
+      if(mode === 'top10'){
+        visiblePositions.slice(0, 10).forEach(i => keep.add(i));
+      }else if(mode === 'bottom10'){
+        visiblePositions.slice(-10).forEach(i => keep.add(i));
+      }
+
+      cloneRows.forEach((r, i)=>{
+        r.style.display = keep.has(i) ? 'table-row' : 'none';
+      });
+
+      const empty = cloneTb.querySelector('.dw-empty');
+      if(empty) empty.style.display='none';
+    }
+
+    async function captureCloneToPng(clone, stage, filename, targetWidth){
+      const cloneScroller = clone.querySelector('.dw-scroll');
+
+      if(cloneScroller){
+        cloneScroller.style.maxHeight = 'none';
+        cloneScroller.style.height = 'auto';
+        cloneScroller.style.overflow = 'visible';
+        cloneScroller.style.overflowX = 'visible';
+        cloneScroller.style.overflowY = 'visible';
+        cloneScroller.classList.add('no-scroll');
+      }
+
+      // ✅ export width = full table scroll width (not viewport width)
+    const w = Math.max(900, Math.ceil(targetWidth || 1200));
+    clone.style.maxWidth = "none";
+    clone.style.width = w + "px";
+    
+    // ✅ ensure the table itself isn't constrained by parent width
+    const cloneTable = clone.querySelector("table.dw-table");
+    if(cloneTable){
+      cloneTable.style.width = "max-content";
+      cloneTable.style.minWidth = "100%";
+    }
+
+      await new Promise(r => requestAnimationFrame(()=>requestAnimationFrame(r)));
+      await waitForFontsAndImages(clone);
+
+      const fullH = Math.ceil(Math.max(
+        clone.scrollHeight || 0,
+        clone.offsetHeight || 0,
+        clone.getBoundingClientRect().height || 0
+      ));
+
+      const MAX_CAPTURE_AREA = 28_000_000;
+      const area = Math.ceil(w) * Math.ceil(fullH);
+      if(area > MAX_CAPTURE_AREA){
+        stage.remove();
+        console.warn("PNG export skipped: capture area too large.", { w, fullH, area });
+        return;
+      }
+
+      const scale = Math.min(3, Math.max(2, window.devicePixelRatio || 2));
+
+      const canvas = await window.html2canvas(clone, {
+        backgroundColor: '#ffffff',
+        scale,
+        useCORS: true,
+        allowTaint: true,
+        logging: false,
+        width: Math.ceil(w),
+        height: Math.ceil(fullH),
+        windowWidth: Math.ceil(w),
+        windowHeight: Math.ceil(fullH),
+        scrollX: 0,
+        scrollY: 0,
+      });
+
+      canvas.toBlob((blob)=>{
+        if(!blob){
+          stage.remove();
+          console.warn("PNG export failed: no blob returned.");
+          return;
+        }
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename + '.png';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url), 1500);
+        stage.remove();
+      }, 'image/png');
+    }
+
+    async function downloadDomPng(mode){
+      try{
+        hideMenu();
+        if(!window.html2canvas) return;
+
+        const widget = document.querySelector('section.vi-table-embed');
+        if(!widget) return;
+
+        const stage = document.createElement('div');
+        stage.style.position = 'fixed';
+        stage.style.left = '-100000px';
+        stage.style.top = '0';
+        stage.style.background = '#ffffff';
+        stage.style.zIndex = '-1';
+
+        const clone = widget.cloneNode(true);
+        clone.classList.add('export-mode');
+        clone.querySelectorAll('script').forEach(s => s.remove());
+        // ✅ Export-only CSS overrides (does NOT touch interactive table)
+       const exportStyle = document.createElement("style");
+        exportStyle.textContent = `
+          /* ✅ Let the table size itself naturally so headers never clip */
+          .vi-table-embed.export-mode #bt-block table.dw-table{
+            table-layout: auto !important;
+            width: max-content !important;
+            min-width: 100% !important;
+          }
+        
+          /* ✅ No clipping in header/cells */
+          .vi-table-embed.export-mode #bt-block thead th,
+          .vi-table-embed.export-mode #bt-block tbody td{
+            overflow: visible !important;
+            text-overflow: clip !important;
+          }
+        
+          /* ✅ REMOVE SORT ARROWS IN EXPORT MODE */
+          .vi-table-embed.export-mode #bt-block thead th.sortable::after{
+            content: "" !important;
+          }
+        
+          /* ✅ Header wrapping in export */
+          .vi-table-embed.export-mode #bt-block thead th{
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow: clip !important;
+            line-height: 1.15 !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            overflow-wrap: anywhere !important;
+            word-break: break-word !important;
+            hyphens: auto !important;
+          }
+        
+          /* ✅ Remove the 2-line clamp / ellipsis in export */
+          .vi-table-embed.export-mode #bt-block .dw-cell{
+            display: block !important;
+            -webkit-line-clamp: unset !important;
+            -webkit-box-orient: unset !important;
+            overflow: visible !important;
+            white-space: normal !important;
+          }
+        
+          /* ✅ Export should never compress the bar columns */
+          .vi-table-embed.export-mode #bt-block th.dw-bar-col,
+          .vi-table-embed.export-mode #bt-block td.dw-bar-td{
+            min-width: calc(var(--bar-fixed-w) + 70px) !important;
+          }
+        `;
+        clone.appendChild(exportStyle);
+
+        stage.appendChild(clone);
+        document.body.appendChild(stage);
+        function wrapExportHeaders(clone, maxLineLen = 15){
+          const ths = clone.querySelectorAll('#bt-block thead th');
+        
+          ths.forEach(th => {
+            const raw = (th.textContent || "").trim();
+            if (!raw) return;
+        
+            // Only wrap long headers
+            if (raw.length <= maxLineLen) return;
+        
+            const txt = raw.replace(/_/g, " ");
+            const words = txt.split(/\s+/).filter(Boolean);
+            if (words.length <= 1) return;
+        
+            // ✅ Build lines in the ORIGINAL order (no flipping)
+            const lines = [""];
+            for (const w of words) {
+              const cur = lines[lines.length - 1];
+        
+              if (!cur) {
+                lines[lines.length - 1] = w;
+                continue;
+              }
+        
+              const test = cur + " " + w;
+              if (test.length <= maxLineLen) {
+                lines[lines.length - 1] = test;
+              } else {
+                lines.push(w);
+              }
+            }
+        
+            // ✅ Optional: clamp to 3 lines max
+            if (lines.length > 3) {
+              const firstTwo = lines.slice(0, 2);
+              const rest = lines.slice(2).join(" ");
+              th.innerHTML = [...firstTwo, rest].join("<br>");
+            } else {
+              th.innerHTML = lines.join("<br>");
+            }
+          });
+        }
+        // ✅ Call before capture (export-only)
+        wrapExportHeaders(clone, 15);
+
+        showRowsInClone(clone, mode);
+
+        const base = getFilenameBase(clone);
+        const suffix = mode === 'bottom10' ? "_bottom10" : "_top10";
+        const filename = (base + suffix).slice(0, 70);
+
+        const cloneTable = clone.querySelector("table.dw-table");
+        const fullTableWidth = Math.ceil(cloneTable?.scrollWidth || clone.getBoundingClientRect().width || 1200);
+        
+        await captureCloneToPng(clone, stage, filename, fullTableWidth);
+
+      }catch(err){
+        console.error("PNG export failed:", err);
+      }
+    }
+
+    function getFullHtml(){
+      const html = document.documentElement ? document.documentElement.outerHTML : "";
+      return "<!doctype html>\n" + html;
+    }
+
+    async function copyToClipboard(text){
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }catch(e){}
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly','');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        return true;
+      }catch(e){
+        return false;
+      }
+    }
+
+    async function onEmbedClick(){
+      hideMenu();
+      const code = getFullHtml();
+      const ok = await copyToClipboard(code);
+      if(menuTitle){
+        menuTitle.textContent = ok ? 'HTML copied!' : 'Copy failed (try again)';
+        setTimeout(()=>{ menuTitle.textContent = 'Choose action'; }, 1800);
+      }
+    }
+
+    if(hasEmbed && btnTop10) btnTop10.addEventListener('click', ()=> downloadDomPng('top10'));
+    if(hasEmbed && btnBottom10) btnBottom10.addEventListener('click', ()=> downloadDomPng('bottom10'));
+    if(hasEmbed && btnCsv) btnCsv.addEventListener('click', downloadCsv);
+    if(hasEmbed && btnEmbed) btnEmbed.addEventListener('click', onEmbedClick);
+
+    renderPage();
+  })();
+  </script>
+
+</section>
+</body>
+</html>
